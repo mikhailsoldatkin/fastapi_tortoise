@@ -55,10 +55,10 @@ async def calculate_cost(request: Tariff):
         return Cost(cost=cost.quantize(Decimal("0.00"), rounding=ROUND_DOWN))
 
     except DoesNotExist:
-        return {"message": "Не найден rate для указанных типа груза и даты!"}
+        return {"message": "Не найдена ставка для указанных типа груза и даты!"}
 
 
-@app.post("/save_tariffs")
+@app.post("/save_tariffs", response_model=Message)
 async def save_tariffs(tariffs: Dict[str, List[Dict[str, str]]]):
     """ Эндпойнт для сохранения тарифов в базу данных """
 
