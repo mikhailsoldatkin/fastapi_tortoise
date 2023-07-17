@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    container_name: smit_app
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - smit_network
+    restart: always
+
+  db:
+    image: postgres:latest
+    env_file:
+      - .env
+    container_name: smit_db
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - smit_network
+
+networks:
+  smit_network:
+    driver: bridge
+    name: smit_network

@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.log
+*$py.class
+
+# Development
+.vscode/
+.idea/
+
+# Mac OS
+.DS_Store
+
+# Environments
+.env
+env/
+venv/
+

@@ -1,0 +1,6 @@
+fastapi
+tortoise-orm
+tortoise-orm[asyncpg]
+uvicorn
+pydantic
+python-dotenv
